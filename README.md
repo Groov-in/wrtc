@@ -3,7 +3,7 @@ WebRTC demo.
 
 Active:
 
-　demo page(ver 1.0.1a): https://groov-in.github.io/wrtc/wrtc-1.0.1.html
+　demo page(ver 1.0.1a): https://groov-in.github.io/wrtc/wrtc-1.0.1a.html
 
 Stale:
 
