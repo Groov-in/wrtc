@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>WebRTC sample</title>
+		<style>
+			.local-video {
+				border-radius: 20px 20px 20px 20px;
+				transform: scaleX(-1);
+				width: 160px;
+				height: 120px;
+				border: solid 1px black;
+			}
+			.remote-video-wrapper {}
+			.remote-video {
+				width: 240px;
+				height: 180px;
+				border: solid 1px black;
+			}
+			.remote-host-video-wrapper {}
+			.remote-host-video {
+				width: 320px;
+				height: 240px;
+				border: ridge 3px red;
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			<span id="room_wrapper">
+				room name:&nbsp;<input type="text" id="room_name" style="width:100px;" value="" />
+				&nbsp;
+				room password:&nbsp;<input type="text" id="room_password" style="width:100px;" value="" />
+				<br />
+			</span>
+			<span id="user_wrapper">
+				user name:&nbsp;<input type="text" id="user_name" style="width:200px;" value="" />
+				&nbsp;
+			</span>
+			<span id="host_wrapper">
+				<input type="checkbox" id="host"><label for="host">host</label>
+				<br />
+			</span>
+			<script>
+				function getSearchObject() {
+					return window.location.search.substring(1).split('&')
+						.map((p) => p.split('=')).reduce((obj, e) => ({...obj, [e[0]]: decodeURI(e[1])}), {});
+				}
+				
+				let roomWrapper = document.getElementById('room_wrapper');
+				let roomName = document.getElementById('room_name');
+				let roomPassword = document.getElementById('room_password');
+				let userWrapper = document.getElementById('user_wrapper');
+				let userName = document.getElementById('user_name');
+				let hostWrapper = document.getElementById('host_wrapper');
+				let chkHost = document.getElementById('host');
+				let params = getSearchObject();
+				if (params) {
+					let params_room_name = 'undefined' === typeof params.room_name ? null : params.room_name;
+					if (roomName && params_room_name) {
+						roomName.value = 'undefined' === params_room_name ? '' : params_room_name;
+					}
+					let params_room_password = 'undefined' === typeof params.room_password ? null : params.room_password;
+					if (roomPassword && params_room_password) {
+						roomPassword.value = 'undefined' === params_room_password ? '' : params_room_password;
+					}
+					if (roomWrapper && '' !== roomName.value && '' !== roomPassword.value) {
+						roomWrapper.hidden = true;
+					}
+					
+					let params_user_name = 'undefined' === typeof params.user_name ? null : params.user_name;
+					if (userName && params_user_name) {
+						userName.value = 'undefined' === params_user_name ? '' : params_user_name;
+					}
+					if (userWrapper && '' !== userName.value) {
+						userWrapper.hidden = true;
+					}
+					
+					let params_host = 'undefined' === typeof params.host ? null : params.host;
+					if (chkHost && null !== params_host) {
+						chkHost.checked = 'true' === params_host;
+					} else {
+						if (hostWrapper) {
+							hostWrapper.hidden = true;
+						}
+					}
+				}
+			</script>
+			<button type="button" onclick="enterRoom();">enter room</button>
+			<button type="button" onclick="exitRoom();">exit room</button>
+			<br />
+			room:<br />
+			<textarea id="room_view" rows="1" style="width:100%" readonly="readonly"></textarea>
+			users:<br />
+			<textarea id="users_view" rows="4" style="width:100%" readonly="readonly"></textarea>
+			<script>
+				let textRoomView = document.getElementById('room_view');
+				let textUsersView = document.getElementById('users_view');
+				addEventListener('update_users_info',　function(event) {
+					let users = event.detail;
+					textRoomView.value = '';
+					textUsersView.value = '';
+					for (let id in users) {
+						if (textRoomView.value === '') {
+							textRoomView.value = 'room_name=' + roomName.value + ' room_password=' + roomPassword.value;
+						}
+						textUsersView.value += 'entered { socketId: ' + id
+							+ ', userName: ' + users[id].user
+							+ ', self: ' + ((users[id].self) ? 'yes':'no')
+							+ ', host: ' + ((users[id].host) ? 'yes':'no')
+							+ ', uuid: ' + users[id].uuid
+							+ ', video: ' + ((users[id].video) ? 'ready':'stopped')
+							+ ', audio: ' + ((users[id].audio) ? 'ready':'stopped')
+							+ ' }\n';
+					}
+				});
+				
+				addEventListener('alert',　function(event) {
+					alert('type: ' + event.detail.type + '\n' +
+						  'message: ' + event.detail.message);
+				});
+			</script>
+		</p>
+		<hr />
+		<p>
+			<input type="checkbox" id="use_video"  checked><label for="use_video">Video</label>
+			<input type="checkbox" id="use_audio"  checked><label for="use_video">Audio</label>
+<!--		<input type="hidden" id="use_video" checked>	-->
+<!--		<input type="hidden" id="use_audio" checked>	-->
+			<button type="button" onclick="startMedia();">Start Media</button>
+			<button type="button" onclick="stopMedia();">Stop Media</button>
+			&nbsp;
+			<button type="button" onclick="connect();">Connect</button>
+			<button type="button" onclick="hangUp();">Hang Up</button>
+		</p>
+		<hr>
+		<div>
+			<video id="local_video" autoplay muted playsinline class="local-video" oncontextmenu="return false;"></video>
+		</div>
+		<div id="container"></div>
+		<script src="https://lab.groov-in.com:10001/socket.io/socket.io.js"></script>
+		<script src="https://lab.groov-in.com/WebRTC/wrtc-1.0.1b.js"></script>
+	</body>
+</html>
