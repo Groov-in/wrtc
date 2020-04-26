@@ -3,7 +3,7 @@ WebRTC demo.
 
 Active:
 
-  feature: Added video and audio mute interface.
+　feature: Added video and audio mute interface.
   
 　demo page(ver 1.0.1c): https://groov-in.github.io/wrtc/wrtc-1.0.1c.html
 
