@@ -3,12 +3,16 @@ WebRTC demo.
 
 Active:
   
-　demo page(ver 1.1.0): https://groov-in.github.io/wrtc/wrtc-1.1.0.html
+　demo page(ver 1.1.0a): https://groov-in.github.io/wrtc/wrtc-1.1.0a.html
 
-　　or https://groov-in.github.io/wrtc/wrtc-1.1.0.html?room_name=foo&room_password=bar&user_name=baz&host=true
+　　or https://groov-in.github.io/wrtc/wrtc-1.1.0a.html?room_name=foo&room_password=bar&user_name=baz&host=true
 
 Stale:
 
+　demo page(ver 1.1.0): https://groov-in.github.io/wrtc/wrtc-1.1.0.html
+
+　　or https://groov-in.github.io/wrtc/wrtc-1.1.0.html?room_name=foo&room_password=bar&user_name=baz&host=true
+  
 　demo page(ver 1.0.1c): https://groov-in.github.io/wrtc/wrtc-1.0.1c.html
 
 　　or https://groov-in.github.io/wrtc/wrtc-1.0.1c.html?room_name=foo&room_password=bar&user_name=baz&host=true
