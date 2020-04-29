@@ -13,16 +13,18 @@ Stale:
 
 　　or https://groov-in.github.io/wrtc/wrtc-1.1.0.html?room_name=foo&room_password=bar&user_name=baz&host=true
   
-　demo page(ver 1.0.1c): https://groov-in.github.io/wrtc/wrtc-1.0.1c.html
+Not work:
 
-　　or https://groov-in.github.io/wrtc/wrtc-1.0.1c.html?room_name=foo&room_password=bar&user_name=baz&host=true
+　~~demo page(ver 1.0.1c): https://groov-in.github.io/wrtc/wrtc-1.0.1c.html~~
 
-　demo page(ver 1.0.1b): https://groov-in.github.io/wrtc/wrtc-1.0.1b.html
+　　~~or https://groov-in.github.io/wrtc/wrtc-1.0.1c.html?room_name=foo&room_password=bar&user_name=baz&host=true~~
 
-　　or https://groov-in.github.io/wrtc/wrtc-1.0.1b.html?room_name=foo&room_password=bar&user_name=baz&host=true
+　~~demo page(ver 1.0.1b): https://groov-in.github.io/wrtc/wrtc-1.0.1b.html~~
 
-　demo page(ver 1.0.1a): https://groov-in.github.io/wrtc/wrtc-1.0.1a.html
+　　~~or https://groov-in.github.io/wrtc/wrtc-1.0.1b.html?room_name=foo&room_password=bar&user_name=baz&host=true~~
 
-　demo page(ver 1.0.1): https://groov-in.github.io/wrtc/wrtc-1.0.1.html
+　~~demo page(ver 1.0.1a): https://groov-in.github.io/wrtc/wrtc-1.0.1a.html~~
 
-　demo page: https://groov-in.github.io/wrtc/wrtc.html?demo_room:demo_password
+　~~demo page(ver 1.0.1): https://groov-in.github.io/wrtc/wrtc-1.0.1.html~~
+
+　~~demo page: https://groov-in.github.io/wrtc/wrtc.html?demo_room:demo_password~~
