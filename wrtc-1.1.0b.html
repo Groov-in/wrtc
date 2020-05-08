@@ -91,6 +91,8 @@
 			<br />
 			room:<br />
 			<textarea id="room_view" rows="1" style="width:100%" readonly="readonly"></textarea>
+			<span id="qrcode"></span>
+			<br id="qrbr" hidden />
 			users:<br />
 			<textarea id="users_view" rows="4" style="width:100%" readonly="readonly"></textarea>
 			<script>
@@ -99,10 +101,12 @@
 				addEventListener('update_users_info',　function(event) {
 					let users = event.detail;
 					textRoomView.value = '';
+					onExitRoom();
 					textUsersView.value = '';
 					for (let id in users) {
 						if (textRoomView.value === '') {
 							textRoomView.value = 'room_name=' + roomName.value + ' room_password=' + roomPassword.value;
+							onEnterRoom();
 						}
 						textUsersView.value += 'entered { socketId: ' + id
 							+ ', userName: ' + users[id].user
@@ -143,5 +147,26 @@
 		<div id="container"></div>
 		<input type="hidden" id="io.origin" value="https://lab.groov-in.com:10100" />
 		<script src="https://lab.groov-in.com/WebRTC/wrtc-1.1.0b.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="https://lab.groov-in.com/jquery.qrcode.min.js"></script>
+		<script>
+			function onEnterRoom() {
+				var ua = navigator.userAgent;
+				if (ua.indexOf('iPhone') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0) {
+				} else if (ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0) {
+				} else {
+					if ('' !== roomName.value && '' !== roomPassword.value) {
+						let href = window.location.href.split('?')[0];
+						href += '?room_name=' + encodeURI(roomName.value) + '&room_password=' + encodeURI(roomPassword.value);
+						$('#qrcode').qrcode({ width: 256, height: 256, text: href });
+						$('#qrbr').show();
+					}
+				}
+			}
+			function onExitRoom() {
+				$('#qrcode').empty();
+				$('#qrbr').hide();
+			}
+		</script>
 	</body>
 </html>
