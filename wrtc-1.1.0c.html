@@ -127,10 +127,10 @@
 				addEventListener('added_remote',　function(event) {
 					let remote = event.detail;
 					//console.dir(remote);
-					console.dir('id:' + remote.id +
-								' user:' + remote.user +
-								' uuid:' + remote.uuid +
-								' host:' + (remote.host ? 'yes' : 'no'));
+					console.log('id:', remote.id,
+						'user:', remote.user,
+						'uuid:', remote.uuid,
+						'host:', (remote.host ? 'yes' : 'no'));
 				});
 			</script>
 		</p>
