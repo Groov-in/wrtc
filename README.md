@@ -7,6 +7,16 @@ Active:
 
 　　or https://groov-in.github.io/wrtc/wrtc-1.1.0d.html?room_name=foo&room_password=bar&user_name=baz&host=true
 
+　cast demo page(ver 1.0.0):
+ 
+ 　　Streamer: https://groov-in.github.io/wrtc/wrtc_cast_streamer-1.0.0.html
+   
+   　or https://groov-in.github.io/wrtc/wrtc_cast_streamer-1.0.0.html?room_name=hoge&room_password=fuga&user_name=piyo
+   
+ 　　viewer: https://groov-in.github.io/wrtc/wrtc_cast_viewer-1.0.0.html
+   
+   　or https://groov-in.github.io/wrtc/wrtc_cast_viewer-1.0.0.html?room_name=hoge&room_password=fuga&user_name=piyo
+
 Stale:
 
 　demo page(ver 1.1.0c): https://groov-in.github.io/wrtc/wrtc-1.1.0c.html
