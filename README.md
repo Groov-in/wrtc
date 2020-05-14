@@ -11,11 +11,11 @@ Active:
  
  　　Streamer: https://groov-in.github.io/wrtc/wrtc_cast_streamer-1.0.0.html
    
-　　 or https://groov-in.github.io/wrtc/wrtc_cast_streamer-1.0.0.html?room_name=hoge&room_password=fuga&user_name=piyo
+　　 or https://groov-in.github.io/wrtc/wrtc_cast_streamer-1.0.0.html?room_name=foo&room_password=bar&user_name=baz
    
  　　viewer: https://groov-in.github.io/wrtc/wrtc_cast_viewer-1.0.0.html
    
-　　or https://groov-in.github.io/wrtc/wrtc_cast_viewer-1.0.0.html?room_name=hoge&room_password=fuga&user_name=piyo
+　　 or https://groov-in.github.io/wrtc/wrtc_cast_viewer-1.0.0.html?room_name=foo&room_password=bar&user_name=baz
 
 Stale:
 
