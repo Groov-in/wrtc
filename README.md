@@ -7,15 +7,15 @@ Active:
 
 　　or https://groov-in.github.io/wrtc/wrtc-1.1.0e.html?room_name=foo&room_password=bar&user_name=baz&host=true
 
-　cast demo page(ver 1.0.0):
+　cast demo page(ver 1.0.0a):
  
- 　　Streamer: https://groov-in.github.io/wrtc/wrtc_cast_streamer-1.0.0.html
+ 　　Streamer: https://groov-in.github.io/wrtc/wrtc_cast_streamer-1.0.0a.html
    
-　　 or https://groov-in.github.io/wrtc/wrtc_cast_streamer-1.0.0.html?room_name=foo&room_password=bar&user_name=baz
+　　 or https://groov-in.github.io/wrtc/wrtc_cast_streamer-1.0.0a.html?room_name=foo&room_password=bar&user_name=baz
    
- 　　viewer: https://groov-in.github.io/wrtc/wrtc_cast_viewer-1.0.0.html
+ 　　viewer: https://groov-in.github.io/wrtc/wrtc_cast_viewer-1.0.0a.html
    
-　　 or https://groov-in.github.io/wrtc/wrtc_cast_viewer-1.0.0.html?room_name=foo&room_password=bar&user_name=baz
+　　 or https://groov-in.github.io/wrtc/wrtc_cast_viewer-1.0.0a.html?room_name=foo&room_password=bar&user_name=baz
 
 Stale:
 
@@ -39,18 +39,12 @@ Stale:
 
 　　or https://groov-in.github.io/wrtc/wrtc-1.1.0.html?room_name=foo&room_password=bar&user_name=baz&host=true
   
-Not work:
-
-　~~demo page(ver 1.0.1c): https://groov-in.github.io/wrtc/wrtc-1.0.1c.html~~
-
-　　~~or https://groov-in.github.io/wrtc/wrtc-1.0.1c.html?room_name=foo&room_password=bar&user_name=baz&host=true~~
-
-　~~demo page(ver 1.0.1b): https://groov-in.github.io/wrtc/wrtc-1.0.1b.html~~
-
-　　~~or https://groov-in.github.io/wrtc/wrtc-1.0.1b.html?room_name=foo&room_password=bar&user_name=baz&host=true~~
-
-　~~demo page(ver 1.0.1a): https://groov-in.github.io/wrtc/wrtc-1.0.1a.html~~
-
-　~~demo page(ver 1.0.1): https://groov-in.github.io/wrtc/wrtc-1.0.1.html~~
-
-　~~demo page: https://groov-in.github.io/wrtc/wrtc.html?demo_room:demo_password~~
+　cast demo page(ver 1.0.0):
+ 
+ 　　Streamer: https://groov-in.github.io/wrtc/wrtc_cast_streamer-1.0.0.html
+   
+　　 or https://groov-in.github.io/wrtc/wrtc_cast_streamer-1.0.0.html?room_name=foo&room_password=bar&user_name=baz
+   
+ 　　viewer: https://groov-in.github.io/wrtc/wrtc_cast_viewer-1.0.0.html
+   
+　　 or https://groov-in.github.io/wrtc/wrtc_cast_viewer-1.0.0.html?room_name=foo&room_password=bar&user_name=baz
