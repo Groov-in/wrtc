@@ -17,6 +17,10 @@ Active:
    
 　　 or https://groov-in.github.io/wrtc/wrtc_cast_viewer-1.0.0a.html?room_name=foo&room_password=bar&user_name=baz
 
+　test tool page:
+
+　　Rewrite the SDP video codec priority: https://groov-in.github.io/wrtc/wrtc_sdp_rewrite.html
+
 Stale:
 
 　demo page(ver 1.1.0d): https://groov-in.github.io/wrtc/wrtc-1.1.0d.html
