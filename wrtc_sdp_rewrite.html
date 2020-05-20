@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>WebRTC SDP Rewrite sample</title>
+	</head>
+	<body>
+		original:<br />
+		<textarea id="original_view" rows="8" style="width:100%"></textarea>
+		Priority video codec:<select id="codec_selection">
+			<option value="VP8">VP8</option>
+			<option value="VP9">VP9</option>
+			<option value="H264">H.264</option>
+			<option value="H265">H.265</option>
+		</select>
+		<button type="button" onclick="rewrite();">Rewrite</button><br />
+		rewrited:<br />
+		<textarea id="rewrited_view" rows="8" style="width:100%"></textarea>
+		log:<br />
+		<textarea id="log_view" rows="4" style="width:100%"></textarea>
+		<script src="https://lab.groov-in.com/WebRTC/wrtc_sdp_rewrite.js"></script>
+		<script>
+			let textOriginalView = document.getElementById('original_view');
+			let codecSelection = document.getElementById('codec_selection');
+			let textRewritedView = document.getElementById('rewrited_view');
+			let textLogView = document.getElementById('log_view');
+			
+			function rewrite() {
+				clearLogBuf();
+				textRewritedView.value = sdpRewriteVideoCodec(textOriginalView.value, codecSelection.value);
+				textLogView.value = getLogBuf();
+			}
+		</script>
+	</body>
+</html>
