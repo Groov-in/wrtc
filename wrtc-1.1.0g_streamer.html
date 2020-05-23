@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>WebRTC Near Camera Streamer sample</title>
+		<style>
+			.local-video {
+				transform: scaleX(-1);
+				width: 100%;
+				height: 100%;
+			}
+			.local-video-with-back-camera {
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="hidden" id="media_token" value="" />
+		<input type="hidden" id="with_back_camera" />
+		<div>
+			<video id="local_video" autoplay muted playsinline class="local-video" oncontextmenu="return false;"></video>
+		</div>
+		<script>
+			function getSearchObject() {
+				return window.location.search.substring(1).split('&')
+					.map((p) => p.split('=')).reduce((obj, e) => ({...obj, [e[0]]: decodeURI(e[1])}), {});
+			}
+			
+			let localVideo = document.getElementById('local_video');
+			let mediaToken = document.getElementById('media_token');
+			let withBackCamera = document.getElementById('with_back_camera');
+			let params = getSearchObject();
+			if (params) {
+				let params_media_token = 'undefined' === typeof params.media_token ? null : params.media_token;
+				if (mediaToken && params_media_token) {
+					mediaToken.value = 'undefined' === params_media_token ? '' : params_media_token;
+				}
+				let params_with_back_camera = 'undefined' === typeof params.with_back_camera ? null : params.with_back_camera;
+				if (withBackCamera && null !== params_with_back_camera) {
+					withBackCamera.checked = 'true' === params_with_back_camera;
+					if (withBackCamera.checked) {
+						localVideo.className = 'local-video-with-back-camera';
+					}
+				}
+			}
+			
+			addEventListener('alert',　function(event) {
+				alert('type: ' + event.detail.type + '\n' +
+					  'message: ' + event.detail.message);
+			});
+			
+			addEventListener('media_info',　function(event) {
+				let mediaInfo = event.detail;
+				//console.dir(mediaInfo);
+				switch(mediaInfo.status) {
+					case 'started':
+						console.log('startMedia() succeed'
+							+ ('' !== mediaInfo.error ? '(' + mediaInfo.error + ')' : ''));
+						break;
+					case 'error':
+						alert(mediaInfo.error);
+						break;
+				}
+			});
+			
+			addEventListener('connect_info',　function(event) {
+				let connectInfo = event.detail;
+				console.log('connect_info',　connectInfo);
+				if( 'connect' === connectInfo.status) {
+					onConnected();
+				}
+			});
+			
+			function isMobile() {
+				let ua = navigator.userAgent;
+				if (ua.indexOf('iPhone') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0) {
+					return true;
+				} else if (ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0) {
+					return true;
+				}
+				return false;
+			}
+			
+			function onConnected() {
+				// Whether to use the back camera.
+				if (withBackCamera && withBackCamera.checked) {
+					// use
+					startMedia(true);
+				} else {
+					// don't use
+					startMedia(/*default argument value is false*/);
+				}
+				// or a simple one line
+				// startMedia(withBackCamera && withBackCamera.checked);
+			}
+			
+			window.addEventListener('load', (event) => {
+				if (!isMobile()) {
+					alert("This page is for mobile devices only.");
+					return;
+				}
+				
+				enterRoom(); // io connecting see addEventListener('connect_info',　function(event) { ...
+			}, false);
+		</script>
+		<input type="hidden" id="io.origin" value="https://lab.groov-in.com:10100" />
+		<input type="hidden" id="option.video.codec.priority" value="VP8" />
+		<script src="https://lab.groov-in.com/WebRTC/wrtc-1.1.0g_streamer.js"></script>
+	</body>
+</html>
